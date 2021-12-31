@@ -1,7 +1,7 @@
 # Exercise I took from my own head: eliminate repeated letters from words.
 # Exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
 
-word1 = "woordddds"
+word1 = "akaekarkart"
 word2 = ""
 
 length = len(word1)
@@ -17,6 +17,12 @@ while counter < length:
         counter -= 1
         length -= 1
     else:
+        for i_index, i_letter in enumerate(word2):
+            if word1[counter] == i_letter:
+                word2[]
+
+
+
         word2 += word1[counter]
 
     counter += 1
@@ -24,4 +30,5 @@ while counter < length:
 
 print(word1)
 print(word2)
+
 
