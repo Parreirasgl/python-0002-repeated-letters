@@ -1,5 +1,5 @@
-# Exercise I took from my own head: eliminate repeated letters from words.
-# Exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
+# An exercise I took from my own head: eliminate repeated letters from words.
+# Um exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
 
 word1 = "akaekarkart"
 word2 = ""
@@ -23,18 +23,23 @@ while counter < length:
 # Adicionar a primeira letra de word1 em word2.
     if counter == 0:
         word2 += word1[0]
+        counter += 1
 
-    # Compare the current turn letter (of word1) to the last letter of word2.
-    # If the letter is the same, delete such letter in word1, and correct the counter and length variables.
-    # Comparar a letra da vez de word1 à última letra de word2.
-    # Se a letra for igual, apagar tal letra a word1, e corrigir as variáveis counter e length.
+# Compare the current turn letter (of word1) to the last letter of word2.
+# If the letter is the same, delete such letter in word1, and correct the counter and length variables.
+# Comparar a letra da vez de word1 à última letra de word2.
+# Se a letra for igual, apagar tal letra a word1, e corrigir as variáveis counter e length.
     elif word1[counter] == word2[len(word2)-1]:
         word1 = word1[:counter] + word1[(counter + 1):]
         counter -= 1
         length -= 1
 
+# If the letter is different, do a for loop passing through each letter of word2.
+# Se a letra for diferente, fazer um for loop passando por cada letra da word2.
     else:
         for i_index, i_letter in enumerate(word2):
+
+
             if i_letter == word1[counter]:
                 for j_index, j_letter in enumerate(word2, start=i_index):
                     counter2 = 0
