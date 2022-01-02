@@ -4,8 +4,12 @@
 word1 = "akaekarkart"
 word2 = ""
 
+word1 = "akaekarkart"
+word2 = "akaekar"
+
 length = len(word1)
 counter = 0
+equal_letter_inside_word2 = False
 
 # Create a while loop that runs a number of times equal to the word length.
 # The word length will change during the loop due to exclusion of letters from the word.
@@ -39,26 +43,42 @@ while counter < length:
     else:
         for i_index, i_letter in enumerate(word2):
 
-
+# Se durante for encontrada alguma letra igual dentro de word2...
+# ...fazer um loop em word2 a partir da letra repetida.
             if i_letter == word1[counter]:
+                equal_letter_inside_word2 = True
                 for j_index, j_letter in enumerate(word2, start=i_index):
-                    counter2 = 0
                     list_index = []
-                    if j_letter == word1[counter + counter2]:
-                        list_index = counter + counter2
-                        counter2 += 1
-                        if counter2 == (len(word2) - i_index):
-                            for k in list_index:
-                                word1 = word1[:k] + word1[(k + 1):]
+                    equal_letters = 0
+
+# Durante o loop em word2, avaliar se há letra igual em word1, a partir da letra da vez.
+# Se houver, adicionar o index da letra em list_index.
+                    if j_letter == word1[counter + equal_letters]:
+                        list_index = counter + equal_letters
+                        equal_letters += 1
+
+# Qualquer das letras em word1 for diferente, continuar o loop inicial por word2.
                     else:
-                        counter2 = 100000
                         break
-                if counter2 == 100000:
+
+# Se o número de letras em list_index for igual ao número de letra analisadas...
+# ...então eliminar as letras de list_index de dentro de word1.
+                if len(list_index) == (len(word2) - i_index):
+                    for k in list_index:
+                        word1 = word1[:k] + word1[(k + 1):]
+                        counter -= len(list_index)
+                        length -= len(list_index)
+                        equal_letters = 100000
+                        break
+
+        if equal_letters == 100000:
                     word2 += word1[counter]
                     break
-            else:
-                word2 += word1[counter]
-    counter += 1
+
+        if equal_letter_inside_word2 == False:
+            word2 += word1[counter]
+
+    equal_letter_inside_word2 = False
 
 print(word1)
 print(word2)
