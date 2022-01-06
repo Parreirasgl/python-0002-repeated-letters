@@ -68,6 +68,7 @@ while counter < length:
 
 # If any of the letters in word1 are different, continue the initial loop through word2.
 # Se qualquer das letras em word1 for diferente, continuar o loop inicial através de word2.
+# E se for a última letra de word2, quebrar o loop.
                     else:
                         print("tem w2 dif w1")
                         print("")
@@ -88,20 +89,21 @@ while counter < length:
                     equal_letters = 100000
                     break
 
-        if equal_letters == 100000:
-            print(word1)
-            print(word2)
-            print("saída1")
-
+# If the loop was broken, due to the absence of a sequence of letters in word2 equal to word2...
+# ...add in word2 the current letter.
+# Se o loop foi quebrado, por ausência de uma sequência de letras em word2 igual a word2...
+# ...adicionar em word2 a letra da vez.
         if equal_letter_inside_word2 == False:
             word2 += word1[counter]
             counter += 1
-            print("saída2")
+            print("exit1")
 
+# Ended initial loop by word2, set variables to initial values.
+# Terminado o loop inicial por word2, ajustar variáveis para os valores iniciais.
     equal_letters = 0
     list_index = []
     equal_letter_inside_word2 = False
-    print("saída3")
+    print("exit2")
 
 
 
