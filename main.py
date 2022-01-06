@@ -4,7 +4,6 @@
 word1 = "aaabbbcdecdecdefffg"
 word2 = ""
 
-length = len(word1)
 counter = 0
 equal_letter_inside_word2 = False
 equal_letters = 0
@@ -31,7 +30,6 @@ while word2 < word1:
 # Se a letra for igual, apagar tal letra a word1, e corrigir as variáveis counter e length.
     elif word1[counter] == word2[len(word2)-1]:
         word1 = word1[:counter] + word1[(counter + 1):]
-        length -= 1
 
 # If the letter is different, do a for loop passing through each letter of word2.
 # Se a letra for diferente, fazer um for loop passando por cada letra da word2.
@@ -81,7 +79,6 @@ while word2 < word1:
         if equal_letter_inside_word2 == False:
             word2 += word1[counter]
             counter += 1
-            length -= 1
 
 # Ended initial loop by word2, set variables to initial values.
 # Terminado o loop inicial por word2, ajustar variáveis para os valores iniciais.
