@@ -1,7 +1,7 @@
 # An exercise I took from my own head: eliminate repeated letters from words.
 # Um exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
 
-word1 = "aaabbbcdecdecdefffggg"
+word1 = "aaabbbcdecdecdefffg"
 word2 = ""
 
 length = len(word1)
@@ -17,7 +17,7 @@ list_index = []
 # O tamanho da palavra vai mudar durante o while loop, pelo fato de se excluir
 # letras da palavra.
 # Desse modo, deve haver correção na variável counter quando letras são excluídas.
-while counter < length:
+while word2 < word1:
 
 # Add the first letter of word1 to word2.
 # Adicionar a primeira letra de word1 em word2.
