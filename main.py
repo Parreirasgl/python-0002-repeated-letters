@@ -81,18 +81,10 @@ while counter < length:
 
 # If the number of letters in list_index is equal to the number of analyzed letters...
 # ...then eliminate the letters of list_index from within word1.
-# As the size of word1 changes with each letter deleted, correct the deletion location using counter3.
 # Se o número de letras em list_index for igual ao número de letra analisadas...
 # ...então eliminar as letras de list_index de dentro de word1.
-# Como o tamanho de word1 muda com cada letra eliminada, corrigir o local de eliminação usando counter3.
                 if len(list_index) == (len(word2) - i_index):
-                    counter3=0
-                    for k in list_index:
-                        print(word1[k-counter3])
-                        word1 = word1[:(k-counter3)] + word1[(k + 1-counter3):]
-                        counter3 += 1
-                        length -= 1
-                    counter3 = 0
+                    word1 = word1[:list_index[0]] + word1[(list_index[0] + equal_letters-1):]
                     equal_letters = 100000
                     break
 
