@@ -1,7 +1,7 @@
 # An exercise I took from my own head: eliminate repeated letters from words.
 # Um exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
 
-word1 = "akaeekarkarty"
+word1 = "jkaeekarkartyyp"
 word2 = ""
 
 length = len(word1)
@@ -42,12 +42,13 @@ while counter < length:
 # Se a letra for diferente, fazer um for loop passando por cada letra da word2.
     else:
         for i_index, i_letter in enumerate(word2):
-
+            print(f"i_index: {i_index}")
+            print(f"i_letter: {i_letter}")
 # Se durante for encontrada alguma letra igual dentro de word2...
 # ...fazer um loop em word2 a partir da letra repetida.
             if i_letter == word1[counter]:
                 equal_letter_inside_word2 = True
-                for j_index, j_letter in enumerate(word2, start=i_index):
+                for j_index, j_letter in enumerate(word2[i_index:], start=i_index):
                     print(f"j_index: {j_index}")
                     print(f"j_letter: {j_letter}")
 
@@ -63,33 +64,40 @@ while counter < length:
 # Se qualquer das letras em word1 for diferente, continuar o loop inicial através de word2.
                     else:
                         print("tem w2 dif w1")
+                        print("")
                         equal_letters = 0
                         equal_letter_inside_word2 = False
                         list_index = []
-                        break
+                        if j_letter == word2[len(word2)-i_index]:
+                            continue
+                        else:
+                            break
 
 # Se o número de letras em list_index for igual ao número de letra analisadas...
 # ...então eliminar as letras de list_index de dentro de word1.
                 if len(list_index) == (len(word2) - i_index):
+                    counter3=0
                     for k in list_index:
-                        word1 = word1[:k] + word1[(k + 1):]
-                        counter -= len(list_index)
-                        length -= len(list_index)
-                        equal_letters = 100000
-                        break
+                        print(word1[k-counter3])
+                        word1 = word1[:(k-counter3)] + word1[(k + 1-counter3):]
+                        counter3 += 1
+                        length -= 1
+                    counter3 = 0
+                    equal_letters = 100000
+                    break
 
         if equal_letters == 100000:
-            word2 += word1[counter]
+            print(word1)
+            print(word2)
             print("saída1")
-            break
 
         if equal_letter_inside_word2 == False:
             word2 += word1[counter]
             counter += 1
             print("saída2")
 
-    # equal_letters = 0
-    # list_index = []
+    equal_letters = 0
+    list_index = []
     equal_letter_inside_word2 = False
     print("saída3")
 
