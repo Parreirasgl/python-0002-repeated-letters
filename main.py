@@ -1,7 +1,7 @@
 # An exercise I took from my own head: eliminate repeated letters from words.
 # Um exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
 
-word1 = "aaabbbcdecdecdefffg"
+word1 = "aaabbbcdecdecdefffggg"
 word2 = ""
 
 length = len(word1)
