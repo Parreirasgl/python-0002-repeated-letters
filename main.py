@@ -18,11 +18,6 @@ list_index = []
 # letras da palavra.
 # Desse modo, deve haver correção na variável counter quando letras são excluídas.
 while counter < length:
-    print(f"counter: {counter}")
-    print(f"length: {length}")
-    print(f"word1: {word1}")
-    print(f"word2: {word2}")
-    print("")
 
 # Add the first letter of word1 to word2.
 # Adicionar a primeira letra de word1 em word2.
@@ -37,14 +32,11 @@ while counter < length:
     elif word1[counter] == word2[len(word2)-1]:
         word1 = word1[:counter] + word1[(counter + 1):]
         length -= 1
-        print("letra da vez de w1 igual última letra de w2")
 
 # If the letter is different, do a for loop passing through each letter of word2.
 # Se a letra for diferente, fazer um for loop passando por cada letra da word2.
     else:
         for i_index, i_letter in enumerate(word2):
-            print(f"i_index: {i_index}")
-            print(f"i_letter: {i_letter}")
 
 # If during the loop any matching letter is found inside word2...
 # ...do a new loop in word2 starting at the repeated letter.
@@ -53,8 +45,6 @@ while counter < length:
             if i_letter == word1[counter]:
                 equal_letter_inside_word2 = True
                 for j_index, j_letter in enumerate(word2[i_index:], start=i_index):
-                    print(f"j_index: {j_index}")
-                    print(f"j_letter: {j_letter}")
 
 # During the new loop in word2, assess whether there is the same letter in word1 (starting at the current letter).
 # If there is, add the letter index of word1 to list_index.
@@ -63,16 +53,11 @@ while counter < length:
                     if j_letter == word1[counter + equal_letters]:
                         list_index.append(counter + equal_letters)
                         equal_letters += 1
-                        print(f"list_index: {list_index}")
-                        print(f"equal_letters: {equal_letters}")
-                        print("")
 
 # If any of the letters in word1 are different, continue the initial loop through word2.
 # Se qualquer das letras em word1 for diferente, continuar o loop inicial através de word2.
 # E se for a última letra de word2, quebrar o loop.
                     else:
-                        print("there is w2 different w1")
-                        print("")
                         equal_letters = 0
                         equal_letter_inside_word2 = False
                         list_index = []
@@ -97,14 +82,12 @@ while counter < length:
             word2 += word1[counter]
             counter += 1
             length -= 1
-            print("exit1")
 
 # Ended initial loop by word2, set variables to initial values.
 # Terminado o loop inicial por word2, ajustar variáveis para os valores iniciais.
     equal_letters = 0
     list_index = []
     equal_letter_inside_word2 = False
-    print("exit2")
 
 print(f"currected word: {word1}")
 
