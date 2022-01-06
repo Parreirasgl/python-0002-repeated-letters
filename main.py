@@ -44,16 +44,21 @@ while counter < length:
         for i_index, i_letter in enumerate(word2):
             print(f"i_index: {i_index}")
             print(f"i_letter: {i_letter}")
-# Se durante for encontrada alguma letra igual dentro de word2...
-# ...fazer um loop em word2 a partir da letra repetida.
+
+# If during the loop any matching letter is found inside word2...
+# ...do a new loop in word2 starting at the repeated letter.
+# Se durante o loop for encontrada alguma letra igual dentro de word2...
+# ...fazer um novo loop em word2 a partir da letra repetida.
             if i_letter == word1[counter]:
                 equal_letter_inside_word2 = True
                 for j_index, j_letter in enumerate(word2[i_index:], start=i_index):
                     print(f"j_index: {j_index}")
                     print(f"j_letter: {j_letter}")
 
-# Durante o loop em word2, avaliar se há letra igual em word1, a partir da letra da vez.
-# Se houver, adicionar o index da letra em list_index.
+# During the new loop in word2, assess whether there is the same letter in word1 (starting at the current letter).
+# If there is, add the letter index of word1 to list_index.
+# Durante o novo loop em word2, avaliar se há letra igual em word1 (a partir da letra da vez).
+# If there is, add the index of the letter present in word1 to list_index.
                     if j_letter == word1[counter + equal_letters]:
                         list_index.append(counter + equal_letters)
                         equal_letters += 1
@@ -61,6 +66,7 @@ while counter < length:
                         print(f"equal_letters: {equal_letters}")
                         print("")
 
+# If any of the letters in word1 are different, continue the initial loop through word2.
 # Se qualquer das letras em word1 for diferente, continuar o loop inicial através de word2.
                     else:
                         print("tem w2 dif w1")
@@ -73,8 +79,12 @@ while counter < length:
                         else:
                             break
 
+# If the number of letters in list_index is equal to the number of analyzed letters...
+# ...then eliminate the letters of list_index from within word1.
+# As the size of word1 changes with each letter deleted, correct the deletion location using counter3.
 # Se o número de letras em list_index for igual ao número de letra analisadas...
 # ...então eliminar as letras de list_index de dentro de word1.
+# Como o tamanho de word1 muda com cada letra eliminada, corrigir o local de eliminação usando counter3.
                 if len(list_index) == (len(word2) - i_index):
                     counter3=0
                     for k in list_index:
