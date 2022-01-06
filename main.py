@@ -1,7 +1,7 @@
 # An exercise I took from my own head: eliminate repeated letters from words.
 # Um exercício que eu tirei da minha cabeça: elimine letras repetidas de palavras.
 
-word1 = "jkaeekarkartyyp"
+word1 = "aaabbbcdecdecdefffg"
 word2 = ""
 
 length = len(word1)
@@ -19,6 +19,7 @@ list_index = []
 # Desse modo, deve haver correção na variável counter quando letras são excluídas.
 while counter < length:
     print(f"counter: {counter}")
+    print(f"length: {length}")
     print(f"word1: {word1}")
     print(f"word2: {word2}")
     print("")
@@ -70,7 +71,7 @@ while counter < length:
 # Se qualquer das letras em word1 for diferente, continuar o loop inicial através de word2.
 # E se for a última letra de word2, quebrar o loop.
                     else:
-                        print("tem w2 dif w1")
+                        print("there is w2 different w1")
                         print("")
                         equal_letters = 0
                         equal_letter_inside_word2 = False
@@ -86,7 +87,6 @@ while counter < length:
 # ...então eliminar as letras de list_index de dentro de word1.
                 if len(list_index) == (len(word2) - i_index):
                     word1 = word1[:list_index[0]] + word1[(list_index[0] + equal_letters-1):]
-                    equal_letters = 100000
                     break
 
 # If the loop was broken, due to the absence of a sequence of letters in word2 equal to word2...
@@ -96,6 +96,7 @@ while counter < length:
         if equal_letter_inside_word2 == False:
             word2 += word1[counter]
             counter += 1
+            length -= 1
             print("exit1")
 
 # Ended initial loop by word2, set variables to initial values.
@@ -105,5 +106,6 @@ while counter < length:
     equal_letter_inside_word2 = False
     print("exit2")
 
+print(f"currected word: {word1}")
 
 
